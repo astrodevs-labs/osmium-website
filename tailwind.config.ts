@@ -52,6 +52,9 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        osmium: {
+          DEFAULT: '#3C9DA1'
+        }
       },
       borderRadius: {
         lg: "var(--radius)",
