@@ -12,12 +12,14 @@ import {
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { zodResolver } from '@hookform/resolvers/zod'
+import Image from 'next/image'
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { IconContext } from 'react-icons'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { toast } from 'sonner'
 import * as z from 'zod'
+import ContactIllustration from '../../public/contact_us.svg'
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -63,15 +65,21 @@ export default function Contact() {
   }
 
   return (
-    <section className="mt-20 flex flex-col items-center" id="contact">
-      <p className="text-3xl">Contact</p>
+    <section className="my-52 flex flex-col items-center" id="contact">
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="w-[500px] space-y-8"
-        >
-          <div className="flex justify-between">
-            <div className="flex w-full flex-col">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+          <div className="flex w-full justify-between space-x-20">
+            <div>
+              <p className="text-3xl">Contact</p>
+
+              <Image
+                src={ContactIllustration}
+                width={400}
+                height={400}
+                alt="illustration contact form"
+              />
+            </div>
+            <div className="flex w-[500px] flex-col">
               <FormField
                 control={form.control}
                 name="name"
@@ -98,22 +106,25 @@ export default function Contact() {
                   </FormItem>
                 )}
               />
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Message</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Type your message here."
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             </div>
           </div>
 
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Message</FormLabel>
-                <FormControl>
-                  <Textarea placeholder="Type your message here." {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
           <div className="flex flex-row-reverse">
             <Button type="submit">
               {isSubmitting ? (

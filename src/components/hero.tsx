@@ -2,9 +2,12 @@ import { FaGithub } from 'react-icons/fa'
 import { Button } from './ui/button'
 
 export default function Hero() {
+  const github = 'https://github.com/astrodevs-labs/osmium'
+  const marketplace =
+    'https://marketplace.visualstudio.com/items?itemName=OsmiumToolchains.osmium-solidity-extension'
   return (
     <section
-      className="mt-40 flex flex-col items-center justify-center space-y-8"
+      className="my-40 flex flex-col items-center justify-center space-y-8"
       id="home"
     >
       <p className="text-6xl font-bold text-osmium">Osmium</p>
@@ -14,10 +17,12 @@ export default function Hero() {
       </p>
       <div className="flex">
         <Button className="mr-2 border-4 border-solid border-osmium bg-osmium hover:bg-background hover:text-osmium ">
-          <a href="/">View marketplace</a>
+          <a href={marketplace} target="_blank">
+            View marketplace
+          </a>
         </Button>
         <Button>
-          <a href="/" className="flex items-center">
+          <a href={github} target="_blank" className="flex items-center">
             <FaGithub className="mr-2" />
             Github
           </a>
