@@ -9,13 +9,13 @@ export default function Header() {
         <nav>
           <ul className="flex space-x-4">
             <li>
-              <Link href="/">Home</Link>
+              <Link href="#home">Home</Link>
             </li>
             <li>
-              <Link href="/about">About</Link>
+              <Link href="#about">About</Link>
             </li>
             <li>
-              <Link href="/contact">Contact</Link>
+              <Link href="#contact">Contact</Link>
             </li>
           </ul>
         </nav>

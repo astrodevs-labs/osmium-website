@@ -3,13 +3,16 @@ import { Button } from './ui/button'
 
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center">
-      <p className="text-5xl font-bold text-osmium">Osmium</p>
-      <p>
+    <section
+      className="mt-40 flex flex-col items-center justify-center space-y-8"
+      id="home"
+    >
+      <p className="text-6xl font-bold text-osmium">Osmium</p>
+      <p className="text-3xl">
         <strong>Develop</strong>, <strong>Build</strong> and{' '}
         <strong>Deploy</strong> smart contracts easily{' '}
       </p>
-      <div className="flex ">
+      <div className="flex">
         <Button className="mr-2 border-4 border-solid border-osmium bg-osmium hover:bg-background hover:text-osmium ">
           <a href="/">View marketplace</a>
         </Button>

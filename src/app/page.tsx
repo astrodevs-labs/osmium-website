@@ -1,3 +1,4 @@
+import About from '@/components/about'
 import Contact from '@/components/contact'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
@@ -8,6 +9,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col">
       <Header />
       <Hero />
+      <About />
       <Contact />
       <Footer />
     </main>
