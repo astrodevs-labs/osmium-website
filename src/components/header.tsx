@@ -3,7 +3,7 @@ import { ModeToggle } from './modeToggle'
 
 export default function Header() {
   return (
-    <header className="flex flex-row justify-between p-4">
+    <header className="sticky top-0 z-10 flex flex-row justify-between bg-background p-4">
       <div className="flex items-baseline">
         <h1 className="mr-2 text-2xl font-bold">Osmium</h1>
         <nav>
