@@ -6,9 +6,9 @@ import Hero from '@/components/hero'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col px-20">
+    <main className="flex min-h-screen flex-col lg:px-20">
       <Header />
-      <div className="px-20">
+      <div className="lg:px-20">
         <Hero />
         <About />
         <Contact />
