@@ -65,10 +65,10 @@ export default function Contact() {
   }
 
   return (
-    <section className="my-52 flex flex-col items-center" id="contact">
+    <section className="my-52 flex w-full flex-col items-center" id="contact">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="flex w-full justify-between space-x-20">
+          <div className="flex w-full flex-col justify-between lg:flex-row lg:space-x-20">
             <div>
               <p className="text-3xl">Contact</p>
 
@@ -77,9 +77,10 @@ export default function Contact() {
                 width={400}
                 height={400}
                 alt="illustration contact form"
+                className="hidden lg:block"
               />
             </div>
-            <div className="flex w-[500px] flex-col">
+            <div className="flex w-72 flex-col sm:w-[500px] ">
               <FormField
                 control={form.control}
                 name="name"
