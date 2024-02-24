@@ -2,6 +2,7 @@
 
 import { FaGithub } from 'react-icons/fa'
 import { Button } from './ui/button'
+import { MovingBorderButton } from './ui/moving-border'
 import { SparklesCore } from './ui/sparkles'
 
 export default function Hero() {
@@ -20,6 +21,15 @@ export default function Hero() {
           <strong>Deploy</strong> smart contracts easily{' '}
         </p>
         <div className="z-20 flex">
+          <MovingBorderButton
+            className="mr-2 border-4 border-solid border-osmium bg-osmium text-black hover:bg-background hover:text-osmium"
+            borderRadius="6px"
+            borderClassName=""
+          >
+            <a href={marketplace} target="_blank">
+              View marketplace
+            </a>
+          </MovingBorderButton>
           <Button className="mr-2 border-4 border-solid border-osmium bg-osmium hover:bg-background hover:text-osmium ">
             <a href={marketplace} target="_blank">
               View marketplace
