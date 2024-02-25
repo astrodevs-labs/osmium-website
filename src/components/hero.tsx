@@ -22,7 +22,7 @@ export default function Hero() {
         </p>
         <div className="z-20 flex">
           <MovingBorderButton
-            className="mr-2 border-4 border-solid border-osmium bg-osmium text-black hover:bg-background hover:text-osmium"
+            className="mr-2 border-4 border-solid border-osmium bg-osmium text-background hover:bg-background hover:text-osmium"
             borderRadius="6px"
             borderClassName=""
           >
