@@ -44,9 +44,7 @@ export default function Hero() {
         </div>
         <div className="absolute inset-0 h-screen w-full">
           <SparklesCore
-            id="tsparticlesfullpage"
             className="h-full w-full bg-background"
-            background="bg-white"
             particleDensity={30}
             particleColor="#3C9DA1"
           />

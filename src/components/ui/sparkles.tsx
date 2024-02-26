@@ -51,7 +51,7 @@ export const SparklesCore = (props: ParticlesProps) => {
   }
 
   return (
-    <motion.div animate={controls} className={cn('opacity-0', className)}>
+    <motion.div animate={controls} className={cn('', className)}>
       {init && (
         <Particles
           id={id || 'tsparticles'}
