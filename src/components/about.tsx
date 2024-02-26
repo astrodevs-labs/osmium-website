@@ -16,7 +16,7 @@ export default function About() {
           <CardHeader>
             Current problem in smart contract developpement
           </CardHeader>
-          <CardContent className="w-full lg:w-[700px]">
+          <CardContent className="w-full lg:w-[700px] 2xl:w-[900px]">
             <p className="break-words">
               This project originated from a straightforward realization: the
               development of a smart contract demands the utilization of
@@ -34,7 +34,7 @@ export default function About() {
           <CardHeader>
             What is Osmium and how does it solve the problem ?
           </CardHeader>
-          <CardContent className="w-full lg:w-[700px]">
+          <CardContent className="w-full lg:w-[700px] 2xl:w-[900px]">
             <p className="break-words">
               The answer lies in a comprehensive VS Code extension designed to
               streamline smart contract development. Offering a suite of
