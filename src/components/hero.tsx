@@ -2,7 +2,6 @@
 
 import { FaGithub } from 'react-icons/fa'
 import { Button } from './ui/button'
-import { MovingBorderButton } from './ui/moving-border'
 import { SparklesCore } from './ui/sparkles'
 
 export default function Hero() {
@@ -15,22 +14,13 @@ export default function Hero() {
       id="home"
     >
       <div className="relative flex h-[40rem] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-black">
-        <p className="z-20 text-6xl font-bold text-osmium">Osmium</p>
-        <p className="z-20 text-center text-3xl sm:px-4">
+        <p className="z-20 text-8xl font-bold text-osmium">Osmium</p>
+        <p className="z-20 text-center text-5xl sm:px-4">
           <strong>Develop</strong>, <strong>Build</strong> and{' '}
           <strong>Deploy</strong> smart contracts easily{' '}
         </p>
-        <div className="z-20 flex">
-          <MovingBorderButton
-            className="mr-2 border-4 border-solid border-osmium bg-osmium text-background hover:bg-background hover:text-osmium"
-            borderRadius="6px"
-            borderClassName=""
-          >
-            <a href={marketplace} target="_blank">
-              View marketplace
-            </a>
-          </MovingBorderButton>
-          <Button className="mr-2 border-4 border-solid border-osmium bg-osmium hover:bg-background hover:text-osmium ">
+        <div className="z-20 mt-10 flex">
+          <Button className="mr-2 border-4 border-solid border-osmium bg-osmium hover:bg-background hover:text-osmium">
             <a href={marketplace} target="_blank">
               View marketplace
             </a>
@@ -47,6 +37,7 @@ export default function Hero() {
             className="h-full w-full bg-background"
             particleDensity={30}
             particleColor="#3C9DA1"
+            minSize={2}
           />
         </div>
       </div>

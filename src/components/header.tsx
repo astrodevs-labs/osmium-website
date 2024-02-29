@@ -12,9 +12,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-10 flex flex-row justify-between bg-background p-4">
       <div className="flex items-baseline">
-        <h1 className="mr-2 hidden text-2xl font-bold md:block">Osmium</h1>
+        <h1 className="mr-2 hidden text-4xl font-bold md:block">Osmium</h1>
         <nav>
-          <ul className="hidden space-x-4 md:flex">
+          <ul className="hidden space-x-4 text-xl md:flex">
             <li>
               <Link href="#home">Home</Link>
             </li>

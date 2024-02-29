@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col lg:px-20">
       <Header />
+      <Hero />
       <div className="lg:px-20">
-        <Hero />
         <About />
         <Contact />
         <Faq />
