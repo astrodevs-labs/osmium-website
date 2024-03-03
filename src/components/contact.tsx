@@ -20,11 +20,13 @@ import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { toast } from 'sonner'
 import * as z from 'zod'
 import ContactIllustration from '../../public/contact_us.svg'
+import { ReCaptcha } from './ReCaptcha'
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
   email: z.string().email().min(2).max(50),
   message: z.string().min(20).max(2000),
+  token: z.string(),
 })
 
 export default function Contact() {
@@ -36,24 +38,26 @@ export default function Contact() {
       name: '',
       email: '',
       message: '',
+      token: '',
     },
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmitting(true)
-
+      console.log('token = ' + values.token)
       const response = await fetch('/api/send', {
         method: 'POST',
         body: JSON.stringify({
           name: values.name,
           email: values.email,
           message: values.message,
+          token: values.token,
         }),
       })
+      setIsSubmitting(false)
 
       if (response.ok) {
-        setIsSubmitting(false)
         toast.success('Request send. See you soon ;)')
       } else {
         throw new Error(response.statusText)
@@ -61,11 +65,18 @@ export default function Contact() {
     } catch (error) {
       toast.error('Error sending the request.')
       console.error('error :', error)
+      setIsSubmitting(false)
     }
   }
 
   return (
     <section className="my-52 flex w-full flex-col items-center" id="contact">
+      <ReCaptcha
+        onVerifyCaptcha={(token: any) => {
+          form.setValue('token', token)
+          console.log('token = ' + token)
+        }}
+      />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="flex w-full flex-col justify-between lg:flex-row lg:space-x-20">
