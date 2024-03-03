@@ -20,12 +20,15 @@ export default function Hero() {
           <strong>Deploy</strong> smart contracts easily{' '}
         </p>
         <div className="z-20 mt-10 flex">
-          <Button className="mr-2 border-4 border-solid border-osmium bg-osmium hover:bg-background hover:text-osmium">
+          <Button
+            className="mr-2 border-4 border-solid border-osmium bg-osmium text-lg hover:bg-background hover:text-osmium"
+            size="lg"
+          >
             <a href={marketplace} target="_blank">
               View marketplace
             </a>
           </Button>
-          <Button>
+          <Button className="text-lg" size="lg">
             <a href={github} target="_blank" className="flex items-center">
               <FaGithub className="mr-2" />
               Github
