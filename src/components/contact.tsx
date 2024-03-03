@@ -127,7 +127,7 @@ export default function Contact() {
           </div>
 
           <div className="flex flex-row-reverse">
-            <Button type="submit">
+            <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? (
                 <IconContext.Provider
                   value={{ className: 'animate-spin mr-2' }}
