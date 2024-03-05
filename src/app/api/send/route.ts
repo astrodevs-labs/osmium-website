@@ -9,7 +9,6 @@ export async function POST(req: NextRequest) {
     const json = req.json();
     const { name, email, message, token } = await json;
 
-    console.log("token = ", token);
     const response = await fetch(
       `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_API_KEY}&response=${token}`,
       {
@@ -20,7 +19,6 @@ export async function POST(req: NextRequest) {
       }
     );
     const captchaValidation = await response.json();
-    console.log("captchaValidation = ", captchaValidation);
     if (captchaValidation.success) {
       const data = await resend.emails.send({
         from: 'Acme <onboarding@resend.dev>',
@@ -31,8 +29,7 @@ export async function POST(req: NextRequest) {
       });
   
       if (data.error) {
-        console.error("data.error :");
-        console.error(data.error);
+        console.error("data.error :", data.error);
         return NextResponse.json({ data, error: data.error }, { status: 500 });
       } else {
         return NextResponse.json({ data, error: null }, { status: 200 });
