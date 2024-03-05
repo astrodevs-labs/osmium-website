@@ -13,7 +13,7 @@ export default function About() {
           className="hidden lg:block lg:h-44 lg:w-44"
         />
         <Card>
-          <CardHeader className="text-2xl">
+          <CardHeader className="text-2xl font-bold">
             Current problem in smart contract developpement
           </CardHeader>
           <CardContent className="w-full text-xl lg:w-[700px] 2xl:w-[900px]">
@@ -31,7 +31,7 @@ export default function About() {
       </div>
       <div className="flex justify-center">
         <Card>
-          <CardHeader className="text-2xl">
+          <CardHeader className="text-2xl font-bold">
             What is Osmium and how does it solve the problem ?
           </CardHeader>
           <CardContent className="w-full text-xl lg:w-[700px] 2xl:w-[900px]">
