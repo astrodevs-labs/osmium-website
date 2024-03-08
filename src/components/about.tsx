@@ -29,12 +29,12 @@ export default function About() {
           </CardContent>
         </Card>
       </div>
-      <div className="flex justify-center">
-        <Card>
-          <CardHeader className="text-2xl font-bold">
+      <div className="flex justify-center space-x-2">
+        <Card className="2xl:w-[500px]">
+          <CardHeader className="text-pretty text-2xl font-bold">
             What is Osmium and how does it solve the problem ?
           </CardHeader>
-          <CardContent className="w-full text-xl lg:w-[700px] 2xl:w-[900px]">
+          <CardContent className="w-full text-xl lg:w-[400px]">
             <p className="break-words">
               The answer lies in a comprehensive VS Code extension designed to
               streamline smart contract development. Offering a suite of
@@ -45,11 +45,11 @@ export default function About() {
           </CardContent>
         </Card>
         <Image
-          src="/icon-transparent.png"
-          alt="osmium logo"
-          width={300}
-          height={300}
-          className="hidden lg:block lg:h-44 lg:w-44"
+          src="/interact.png"
+          alt="screen of interact"
+          width={500}
+          height={500}
+          className="hidden rounded-lg lg:block lg:h-96 lg:w-96"
         />
       </div>
     </section>

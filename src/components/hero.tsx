@@ -14,8 +14,10 @@ export default function Hero() {
       id="home"
     >
       <div className="relative flex h-[40rem] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-black">
-        <p className="z-20 text-8xl font-bold text-osmium">Osmium</p>
-        <p className="z-20 text-center text-5xl sm:px-4">
+        <p className="z-20 text-5xl font-bold text-osmium sm:text-8xl">
+          Osmium
+        </p>
+        <p className="z-20 text-center text-3xl sm:px-4 sm:text-5xl">
           <strong>Develop</strong>, <strong>Build</strong> and{' '}
           <strong>Deploy</strong> smart contracts easily{' '}
         </p>
