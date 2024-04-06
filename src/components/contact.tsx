@@ -46,9 +46,6 @@ export default function Contact() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmitting(true)
-      if (!executeRecaptcha) {
-        return
-      }
       const token = executeRecaptcha('send_form')
       console.log(token)
       const params = {
