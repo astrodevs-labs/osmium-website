@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
+import emailjs from '@emailjs/browser'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Image from 'next/image'
 import { useState } from 'react'
@@ -44,28 +45,37 @@ export default function Contact() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmitting(true)
-      if (!executeRecaptcha) {
-        return
+      // if (token) {
+      const params = {
+        name: values.name,
+        email: values.email,
+        message: values.message,
       }
 
-      const token = await executeRecaptcha('send_form')
-
-      const response = await fetch('/api/send', {
-        method: 'POST',
-        body: JSON.stringify({
-          name: values.name,
-          email: values.email,
-          message: values.message,
-          token,
-        }),
-      })
+      emailjs
+        .send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          params,
+          {
+            publicKey: process.env.NEXT_PUBLIC_EMAILJS_API_KEY!,
+          },
+        )
+        .then(
+          (data) => {
+            console.log('SUCCESS!')
+            toast.success('Request send. See you soon ;)')
+          },
+          (error) => {
+            console.log('FAILED...', error.text)
+            throw new Error(error.text)
+          },
+        )
       setIsSubmitting(false)
-
-      if (response.ok) {
-        toast.success('Request send. See you soon ;)')
-      } else {
-        throw new Error(response.statusText)
-      }
+      // } else {
+      //   toast.error('Unproccesable request, Invalid captcha code')
+      //   setIsSubmitting(false)
+      // }
     } catch (error) {
       toast.error('Error sending the request.')
       console.error('error :', error)
@@ -148,12 +158,6 @@ export default function Contact() {
             </Button>
           </div>
         </form>
-        {/* <ReCaptcha
-          onVerifyCaptcha={(token: any) => {
-            form.setValue('token', token)
-            console.log('token = ' + token)
-          }}
-        /> */}
       </Form>
     </section>
   )
