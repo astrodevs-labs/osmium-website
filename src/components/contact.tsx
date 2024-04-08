@@ -15,7 +15,7 @@ import emailjs from '@emailjs/browser'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Image from 'next/image'
 import { useState } from 'react'
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import { GoogleReCaptcha, useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useForm } from 'react-hook-form'
 import { IconContext } from 'react-icons'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
@@ -32,6 +32,7 @@ const formSchema = z.object({
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const { executeRecaptcha } = useGoogleReCaptcha()
+  const [token, setToken] = useState('')
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -45,7 +46,11 @@ export default function Contact() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmitting(true)
-      // if (token) {
+      if (!executeRecaptcha) {
+        return
+      }
+      const token = executeRecaptcha('send_form')
+      console.log(token)
       const params = {
         name: values.name,
         email: values.email,
@@ -62,7 +67,7 @@ export default function Contact() {
           },
         )
         .then(
-          (data) => {
+          () => {
             console.log('SUCCESS!')
             toast.success('Request send. See you soon ;)')
           },
@@ -72,10 +77,6 @@ export default function Contact() {
           },
         )
       setIsSubmitting(false)
-      // } else {
-      //   toast.error('Unproccesable request, Invalid captcha code')
-      //   setIsSubmitting(false)
-      // }
     } catch (error) {
       toast.error('Error sending the request.')
       console.error('error :', error)
@@ -85,6 +86,7 @@ export default function Contact() {
 
   return (
     <section className="my-52 flex w-full flex-col items-center" id="contact">
+      <GoogleReCaptcha onVerify={(token) => setToken(token)} />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="flex w-full flex-col justify-between lg:flex-row lg:space-x-20">
