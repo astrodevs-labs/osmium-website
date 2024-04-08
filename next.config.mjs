@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   images: { unoptimized: true },
-  distDir: 'out',
+  distDir: 'build',
   basePath: "/osmium-website",
 };
 
