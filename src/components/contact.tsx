@@ -46,33 +46,36 @@ export default function Contact() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmitting(true)
-      const token = executeRecaptcha('send_form')
-      console.log(token)
-      const params = {
-        name: values.name,
-        email: values.email,
-        message: values.message,
+      if (!executeRecaptcha) {
+        return
       }
-
-      emailjs
-        .send(
-          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
-          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
-          params,
-          {
-            publicKey: process.env.NEXT_PUBLIC_EMAILJS_API_KEY!,
-          },
-        )
-        .then(
-          () => {
-            console.log('SUCCESS!')
-            toast.success('Request send. See you soon ;)')
-          },
-          (error) => {
-            console.log('FAILED...', error.text)
-            throw new Error(error.text)
-          },
-        )
+      const token = await executeRecaptcha('send_form')
+      if (token) {
+        const params = {
+          name: values.name,
+          email: values.email,
+          message: values.message,
+        }
+        emailjs
+          .send(
+            process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+            process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+            params,
+            {
+              publicKey: process.env.NEXT_PUBLIC_EMAILJS_API_KEY!,
+            },
+          )
+          .then(
+            () => {
+              console.log('SUCCESS!')
+              toast.success('Request send. See you soon ;)')
+            },
+            (error) => {
+              console.log('FAILED...', error.text)
+              throw new Error(error.text)
+            },
+          )
+      }
       setIsSubmitting(false)
     } catch (error) {
       toast.error('Error sending the request.')
@@ -83,7 +86,7 @@ export default function Contact() {
 
   return (
     <section className="my-52 flex w-full flex-col items-center" id="contact">
-      <GoogleReCaptcha onVerify={(token) => setToken(token)} />
+      <GoogleReCaptcha onVerify={() => {}} />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="flex w-full flex-col justify-between lg:flex-row lg:space-x-20">
