@@ -3,7 +3,10 @@ import { Card, CardContent, CardHeader } from './ui/card'
 
 export default function About() {
   return (
-    <section className="mx-4 my-32 space-y-52 md:px-8 lg:px-16" id="about">
+    <section
+      className="mx-4 my-32 space-y-52 py-24 md:px-8 lg:px-16"
+      id="about"
+    >
       <div className="flex justify-center space-x-2">
         <Image
           src="/icon-transparent.png"

@@ -10,18 +10,18 @@ export default function Hero() {
     'https://marketplace.visualstudio.com/items?itemName=OsmiumToolchains.osmium-solidity-extension'
   return (
     <section
-      className="my-20 flex flex-col items-center justify-center space-y-8"
+      className="flex flex-col items-center justify-center space-y-8 py-24"
       id="home"
     >
       <div className="relative flex h-[40rem] w-full flex-col items-center justify-center overflow-hidden rounded-md bg-black">
-        <p className="z-20 text-5xl font-bold text-osmium sm:text-8xl">
+        <p className="z-10 text-5xl font-bold text-osmium sm:text-8xl">
           Osmium
         </p>
-        <p className="z-20 text-center text-3xl sm:px-4 sm:text-5xl">
+        <p className="z-10 text-center text-3xl sm:px-4 sm:text-5xl">
           <strong>Develop</strong>, <strong>Build</strong> and{' '}
           <strong>Deploy</strong> smart contracts easily{' '}
         </p>
-        <div className="z-20 mt-10 flex">
+        <div className="z-10 mt-10 flex">
           <Button
             className="mr-2 border-4 border-solid border-osmium bg-osmium text-lg hover:bg-background hover:text-osmium"
             size="lg"

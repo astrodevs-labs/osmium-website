@@ -85,7 +85,10 @@ export default function Contact() {
   }
 
   return (
-    <section className="my-52 flex w-full flex-col items-center" id="contact">
+    <section
+      className="my-52 flex w-full flex-col items-center py-24"
+      id="contact"
+    >
       <GoogleReCaptcha onVerify={() => {}} />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
