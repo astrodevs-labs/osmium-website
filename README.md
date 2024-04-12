@@ -28,6 +28,10 @@ To start using Osmium, execute the following command in your terminal:
 pnpm run dev
 ```
 
+## Try Our Extension  
+
+You can find the [repo](https://github.com/astrodevs-labs/osmium-solidity) here.
+
 ## Feedback and Support
 
 We hope you enjoy using Osmium. Your feedback is valuable to us. We are committed to improving Osmium and appreciate your contribution to this process.
