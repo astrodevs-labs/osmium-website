@@ -32,6 +32,12 @@ jobs:
 
       - name: Build with Next.js 🏗️
         run: npx next build
+        env:
+          EMAILJS_API_KEY: ${{ vars.EMAILJS_API_KEY }}
+          EMAILJS_SERVICE_ID: ${{ vars.EMAILJS_SERVICE_ID }}
+          EMAILJS_TEMPLATE_ID: ${{ vars.EMAILJS_TEMPLATE_ID }}
+          RECAPTCHA_API_KEY: ${{ vars.RECAPTCHA_API_KEY }}
+          RECAPTCHA_SITE_KEY: ${{ vars.RECAPTCHA_SITE_KEY }}
 
       - name: Debug
         run: ls -la
