@@ -15,7 +15,7 @@ import emailjs from '@emailjs/browser'
 import { zodResolver } from '@hookform/resolvers/zod'
 import Image from 'next/image'
 import { useState } from 'react'
-import { GoogleReCaptcha, useGoogleReCaptcha } from 'react-google-recaptcha-v3'
+import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
 import { IconContext } from 'react-icons'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
@@ -31,8 +31,7 @@ const formSchema = z.object({
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const { executeRecaptcha } = useGoogleReCaptcha()
-  const [token, setToken] = useState('')
+  const [token, setToken] = useState<string | null>(null)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -46,36 +45,32 @@ export default function Contact() {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
       setIsSubmitting(true)
-      if (!executeRecaptcha) {
-        return
+      console.log('token = ' + token)
+      const params = {
+        name: values.name,
+        email: values.email,
+        message: values.message,
+        'g-recaptcha-response': token,
       }
-      const token = await executeRecaptcha('send_form')
-      if (token) {
-        const params = {
-          name: values.name,
-          email: values.email,
-          message: values.message,
-        }
-        emailjs
-          .send(
-            process.env.EMAILJS_SERVICE_ID!,
-            process.env.EMAILJS_TEMPLATE_ID!,
-            params,
-            {
-              publicKey: process.env.EMAILJS_API_KEY!,
-            },
-          )
-          .then(
-            () => {
-              console.log('SUCCESS!')
-              toast.success('Request send. See you soon ;)')
-            },
-            (error) => {
-              console.log('FAILED...', error.text)
-              throw new Error(error.text)
-            },
-          )
-      }
+      emailjs
+        .send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          params,
+          {
+            publicKey: process.env.NEXT_PUBLIC_EMAILJS_API_KEY!,
+          },
+        )
+        .then(
+          () => {
+            console.log('SUCCESS!')
+            toast.success('Request send. See you soon ;)')
+          },
+          (error) => {
+            console.log('FAILED...', error.text)
+            throw new Error(error.text)
+          },
+        )
       setIsSubmitting(false)
     } catch (error) {
       toast.error('Error sending the request.')
@@ -89,7 +84,6 @@ export default function Contact() {
       className="my-52 flex w-full flex-col items-center py-24"
       id="contact"
     >
-      <GoogleReCaptcha onVerify={() => {}} />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="flex w-full flex-col justify-between lg:flex-row lg:space-x-20">
@@ -149,7 +143,6 @@ export default function Contact() {
               />
             </div>
           </div>
-
           <div className="flex flex-row-reverse">
             <Button type="submit" disabled={isSubmitting}>
               {isSubmitting ? (
@@ -163,6 +156,10 @@ export default function Contact() {
             </Button>
           </div>
         </form>
+        <ReCAPTCHA
+          sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
+          onChange={(token) => setToken(token)}
+        />
       </Form>
     </section>
   )
