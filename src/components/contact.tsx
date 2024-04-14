@@ -44,8 +44,11 @@ export default function Contact() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
+      if (!token) {
+        toast.error('Please verify you are not a robot.')
+        return
+      }
       setIsSubmitting(true)
-      console.log('token = ' + token)
       const params = {
         name: values.name,
         email: values.email,
@@ -63,15 +66,15 @@ export default function Contact() {
         )
         .then(
           () => {
-            console.log('SUCCESS!')
             toast.success('Request send. See you soon ;)')
+            setIsSubmitting(false)
           },
           (error) => {
+            setIsSubmitting(false)
             console.log('FAILED...', error.text)
             throw new Error(error.text)
           },
         )
-      setIsSubmitting(false)
     } catch (error) {
       toast.error('Error sending the request.')
       console.error('error :', error)
@@ -141,6 +144,12 @@ export default function Contact() {
                   </FormItem>
                 )}
               />
+              <div className="mt-10 flex justify-end">
+                <ReCAPTCHA
+                  sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
+                  onChange={(token) => setToken(token)}
+                />
+              </div>
             </div>
           </div>
           <div className="flex flex-row-reverse">
@@ -156,10 +165,6 @@ export default function Contact() {
             </Button>
           </div>
         </form>
-        <ReCAPTCHA
-          sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
-          onChange={(token) => setToken(token)}
-        />
       </Form>
     </section>
   )
