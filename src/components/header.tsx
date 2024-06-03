@@ -50,7 +50,7 @@ export default function Header() {
       </div>
       <div className="z-10 flex ">
         <Button
-          className="mr-2 border-4 border-solid border-osmium bg-osmium text-lg hover:bg-background hover:text-osmium"
+          className="mr-2 border-2 border-solid border-osmium bg-osmium text-lg hover:bg-background hover:text-osmium"
           size="lg"
         >
           <a href={marketplace} target="_blank">
