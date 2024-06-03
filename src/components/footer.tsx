@@ -1,5 +1,7 @@
 import Image from 'next/image'
-import { FaDiscord, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaDiscord, FaGithub } from 'react-icons/fa'
+import { FaXTwitter } from 'react-icons/fa6'
+import { VscVscode } from 'react-icons/vsc'
 
 export default function Footer() {
   const twitter = 'https://twitter.com/osmiumtoolchain'
@@ -17,25 +19,39 @@ export default function Footer() {
             width={90}
             height={90}
           />
-          <a href={discord} target="_blank" className="hidden sm:block">
-            Discord
-          </a>
-          <a href={twitter} target="_blank" className="hidden sm:block">
-            Twitter
-          </a>
-          <a href={marketplace} target="_blank" className="hidden sm:block">
-            Marketplace
-          </a>
         </div>
-        <div className="mt-4 flex w-20 justify-between space-x-2">
-          <a href={github} target="_blank" className="flex items-center">
+        <div className="mt-4 flex justify-between space-x-8">
+          <a
+            href={github}
+            target="_blank"
+            className="flex items-center space-x-2"
+          >
             <FaGithub className="h-6 w-6" />
+            <p className="hidden sm:block">Github</p>
           </a>
-          <a href={discord} target="_blank" className="flex items-center">
+          <a
+            href={discord}
+            target="_blank"
+            className="flex items-center space-x-2"
+          >
             <FaDiscord className="h-6 w-6" />
+            <p className="hidden sm:block">Discord</p>
           </a>
-          <a href={twitter} target="_blank" className="flex items-center">
-            <FaTwitter className="h-6 w-6" />
+          <a
+            href={twitter}
+            target="_blank"
+            className="flex items-center space-x-2"
+          >
+            <FaXTwitter className="h-6 w-6" />
+            <p className="hidden sm:block">X</p>
+          </a>
+          <a
+            href={marketplace}
+            target="_blank"
+            className="flex items-center space-x-2"
+          >
+            <VscVscode className="h-6 w-6" />
+            <p className="hidden sm:block">Marketplace</p>
           </a>
         </div>
       </div>

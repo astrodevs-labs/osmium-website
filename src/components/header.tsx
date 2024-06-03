@@ -16,7 +16,7 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-20 flex flex-row justify-between bg-background p-4">
-      <div className="flex items-baseline">
+      <div className="flex items-baseline space-x-10">
         <h1 className="mr-2 hidden text-4xl font-bold md:block">Osmium</h1>
         <nav>
           <ul className="hidden space-x-4 text-xl md:flex">
