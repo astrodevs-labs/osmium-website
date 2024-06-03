@@ -7,7 +7,7 @@ export default function About() {
       className="mx-4 my-32 space-y-52 py-24 md:px-8 lg:px-16"
       id="about"
     >
-      <div className="flex justify-center space-x-2">
+      <div className="flex justify-center space-x-6">
         <Image
           src="/icon-transparent.png"
           alt="osmium logo"
@@ -15,8 +15,8 @@ export default function About() {
           height={300}
           className="hidden rounded-lg lg:block lg:h-96 lg:w-96"
         />
-        <Card className="2xl:w-[500px]">
-          <CardHeader className="text-2xl font-bold">
+        <Card className="p-2 2xl:w-[500px]">
+          <CardHeader className="text-3xl font-bold">
             Current problem in smart contract developpement
           </CardHeader>
           <CardContent className="w-full text-xl lg:w-[400px] xl:w-full">
@@ -32,9 +32,9 @@ export default function About() {
           </CardContent>
         </Card>
       </div>
-      <div className="flex justify-center space-x-2">
-        <Card className="2xl:w-[500px]">
-          <CardHeader className="text-pretty text-2xl font-bold">
+      <div className="flex justify-center space-x-6">
+        <Card className="p-2 2xl:w-[500px]">
+          <CardHeader className="text-pretty text-3xl font-bold">
             What is Osmium and how does it solve the problem ?
           </CardHeader>
           <CardContent className="w-full text-xl lg:w-[400px] xl:w-full">
