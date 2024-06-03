@@ -6,9 +6,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import Link from 'next/link'
-import { ModeToggle } from './modeToggle'
+import { FaGithub } from 'react-icons/fa'
+import { Button } from './ui/button'
 
 export default function Header() {
+  const github = 'https://github.com/astrodevs-labs/osmium'
+  const marketplace =
+    'https://marketplace.visualstudio.com/items?itemName=OsmiumToolchains.osmium-solidity-extension'
+
   return (
     <header className="sticky top-0 z-20 flex flex-row justify-between bg-background p-4">
       <div className="flex items-baseline">
@@ -43,7 +48,22 @@ export default function Header() {
           </DropdownMenu>
         </nav>
       </div>
-      <ModeToggle />
+      <div className="z-10 flex ">
+        <Button
+          className="mr-2 border-4 border-solid border-osmium bg-osmium text-lg hover:bg-background hover:text-osmium"
+          size="lg"
+        >
+          <a href={marketplace} target="_blank">
+            View marketplace
+          </a>
+        </Button>
+        <Button className="text-lg" size="lg">
+          <a href={github} target="_blank" className="flex items-center">
+            <FaGithub className="mr-2" />
+            Github
+          </a>
+        </Button>
+      </div>
     </header>
   )
 }

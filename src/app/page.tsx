@@ -4,6 +4,7 @@ import Faq from '@/components/faq'
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import Hero from '@/components/hero'
+import { ModeToggle } from '@/components/modeToggle'
 import Timeline from '@/components/timeline'
 
 export default function Home() {
@@ -17,6 +18,9 @@ export default function Home() {
         <Contact />
         <Faq />
         <Footer />
+      </div>
+      <div className="fixed bottom-4 right-4 px-4 py-2">
+        <ModeToggle />
       </div>
     </main>
   )
