@@ -1,6 +1,41 @@
 import { Card } from '@/components/ui/card'
 import { JSX, SVGProps } from 'react'
 
+function Element({
+  title,
+  description,
+  alt,
+}: {
+  title: string
+  description: string
+  alt: string
+}) {
+  return (
+    <button className="flex w-full items-center justify-between rounded-md px-4 py-2 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-50 focus-visible:ring-2 focus-visible:ring-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-gray-400">
+      <div className="flex items-center space-x-3">
+        <img
+          alt={alt}
+          className="rounded-md"
+          height={40}
+          src="/placeholder.svg"
+          style={{
+            aspectRatio: '40/40',
+            objectFit: 'cover',
+          }}
+          width={40}
+        />
+        <div className="grid gap-1">
+          <span>{title}</span>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            {description}
+          </p>
+        </div>
+      </div>
+      <ChevronRightIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+    </button>
+  )
+}
+
 export function Features() {
   return (
     <Card className="grid gap-6 p-4 md:grid-cols-[300px_1fr] md:p-6">
@@ -8,94 +43,26 @@ export function Features() {
         <div className="p-4">
           <h2 className="mb-4 text-lg font-semibold">Galerie</h2>
           <div className="space-y-2">
-            <button className="flex w-full items-center justify-between rounded-md px-4 py-2 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-gray-400">
-              <div className="flex items-center space-x-3">
-                <img
-                  alt="Image 1"
-                  className="rounded-md"
-                  height={40}
-                  src="/placeholder.svg"
-                  style={{
-                    aspectRatio: '40/40',
-                    objectFit: 'cover',
-                  }}
-                  width={40}
-                />
-                <div className="grid gap-1">
-                  <span>Image 1</span>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    This is the first image in the gallery.
-                  </p>
-                </div>
-              </div>
-              <ChevronRightIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-            </button>
-            <button className="flex w-full items-center justify-between rounded-md px-4 py-2 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-gray-400">
-              <div className="flex items-center space-x-3">
-                <img
-                  alt="Image 2"
-                  className="rounded-md"
-                  height={40}
-                  src="/placeholder.svg"
-                  style={{
-                    aspectRatio: '40/40',
-                    objectFit: 'cover',
-                  }}
-                  width={40}
-                />
-                <div className="grid gap-1">
-                  <span>Image 2</span>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    This is the second image in the gallery.
-                  </p>
-                </div>
-              </div>
-              <ChevronRightIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-            </button>
-            <button className="flex w-full items-center justify-between rounded-md px-4 py-2 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-gray-400">
-              <div className="flex items-center space-x-3">
-                <img
-                  alt="Image 3"
-                  className="rounded-md"
-                  height={40}
-                  src="/placeholder.svg"
-                  style={{
-                    aspectRatio: '40/40',
-                    objectFit: 'cover',
-                  }}
-                  width={40}
-                />
-                <div className="grid gap-1">
-                  <span>Image 3</span>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    This is the third image in the gallery.
-                  </p>
-                </div>
-              </div>
-              <ChevronRightIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-            </button>
-            <button className="flex w-full items-center justify-between rounded-md px-4 py-2 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-gray-400">
-              <div className="flex items-center space-x-3">
-                <img
-                  alt="Image 4"
-                  className="rounded-md"
-                  height={40}
-                  src="/placeholder.svg"
-                  style={{
-                    aspectRatio: '40/40',
-                    objectFit: 'cover',
-                  }}
-                  width={40}
-                />
-                <div className="grid gap-1">
-                  <span>Image 4</span>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">
-                    This is the fourth image in the gallery.
-                  </p>
-                </div>
-              </div>
-              <ChevronRightIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
-            </button>
+            <Element
+              title="Image 1"
+              description="This is the first image in the gallery."
+              alt="Image 1"
+            />
+            <Element
+              title="Image 2"
+              description="This is the second image in the gallery."
+              alt="Image 2"
+            />
+            <Element
+              title="Image 3"
+              description="This is the third image in the gallery."
+              alt="Image 3"
+            />
+            <Element
+              title="Image 4"
+              description="This is the fourth image in the gallery."
+              alt="Image 4"
+            />
           </div>
         </div>
       </div>
