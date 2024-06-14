@@ -1,32 +1,65 @@
+'use client'
+
 import { Card } from '@/components/ui/card'
-import { JSX, SVGProps } from 'react'
+import interact from '@/public/interact.png'
+import random1 from '@/public/random1.jpg'
+import random2 from '@/public/random2.jpg'
+import random3 from '@/public/random3.jpg'
+import Image from 'next/image'
+import { Dispatch, JSX, SVGProps, SetStateAction, useState } from 'react'
+
+const list = [
+  {
+    title: ' Main Interface of the Extension:',
+    description:
+      'Discover the main interface of our VS Code extension, designed to simplify the development of smart contracts. Easily access all necessary tools from a single intuitive interface.',
+    alt: 'Image ',
+    src: interact,
+  },
+  {
+    title: ' Automated Security Analysis:',
+    description:
+      'Take advantage of our automated security analysis tool to detect potential vulnerabilities in your smart contracts. Ensure your code is secure and follows best practices.',
+    alt: 'Image ',
+    src: random1,
+  },
+  {
+    title: ' Integrated Testing Panel:',
+    description:
+      'View your smart contract tests directly within the VS Code test panel. Ensure the quality and robustness of your code by managing and running tests seamlessly within the editor.',
+    alt: 'Image ',
+    src: random2,
+  },
+  {
+    title: ' Integrated Deployment Tools:',
+    description:
+      'Visualize the powerful deployment tools integrated into our extension. Deploy your smart contracts on different blockchains with just a few clicks, without leaving your code editor.',
+    alt: 'Image ',
+    src: random3,
+  },
+]
 
 function Element({
   title,
   description,
-  alt,
+  setCurrent,
+  index,
 }: {
   title: string
   description: string
-  alt: string
+  setCurrent: Dispatch<SetStateAction<number>>
+  index: number
 }) {
   return (
-    <button className="flex w-full items-center justify-between rounded-md px-4 py-2 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-50 focus-visible:ring-2 focus-visible:ring-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-gray-400">
+    <button
+      onClick={() => setCurrent(index)}
+      className="flex w-full max-w-[500px] items-center justify-between rounded-md px-4 py-2 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-50 focus-visible:ring-2 focus-visible:ring-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-gray-400"
+    >
       <div className="flex items-center space-x-3">
-        <img
-          alt={alt}
-          className="rounded-md"
-          height={40}
-          src="/placeholder.svg"
-          style={{
-            aspectRatio: '40/40',
-            objectFit: 'cover',
-          }}
-          width={40}
-        />
-        <div className="grid gap-1">
-          <span>{title}</span>
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+        <kbd className="flex items-start justify-start">{index + 1}</kbd>
+        <div className="flex flex-col items-start">
+          <h5 className="">{title}</h5>
+          <p className="text-start text-sm text-gray-500 dark:text-gray-400">
             {description}
           </p>
         </div>
@@ -37,49 +70,34 @@ function Element({
 }
 
 export function Features() {
+  const [current, setCurrent] = useState(0)
   return (
-    <Card className="grid gap-6 p-4 md:grid-cols-[300px_1fr] md:p-6">
-      <div className="space-y-2">
-        <div className="p-4">
-          <h2 className="mb-4 text-lg font-semibold">Galerie</h2>
-          <div className="space-y-2">
-            <Element
-              title="Image 1"
-              description="This is the first image in the gallery."
-              alt="Image 1"
-            />
-            <Element
-              title="Image 2"
-              description="This is the second image in the gallery."
-              alt="Image 2"
-            />
-            <Element
-              title="Image 3"
-              description="This is the third image in the gallery."
-              alt="Image 3"
-            />
-            <Element
-              title="Image 4"
-              description="This is the fourth image in the gallery."
-              alt="Image 4"
-            />
+    <div className="my-32 flex items-center justify-center">
+      <Card className="flex w-fit justify-around p-4 md:p-6">
+        <div className="space-y-2">
+          <div className="p-4">
+            <h2 className="mb-4 text-lg font-semibold">Galerie</h2>
+            <div className="space-y-2">
+              {list.map((item, index) => (
+                <Element
+                  key={index}
+                  {...item}
+                  setCurrent={setCurrent}
+                  index={index}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
-      <div className="flex items-center justify-center">
-        <img
-          alt="Image Preview"
-          className="h-auto max-h-[400px] w-full max-w-[600px] object-contain"
-          height={400}
-          src="/placeholder.svg"
-          style={{
-            aspectRatio: '600/400',
-            objectFit: 'cover',
-          }}
-          width={600}
-        />
-      </div>
-    </Card>
+        <div className="flex h-fit w-[500px] items-center justify-center">
+          <Image
+            alt={list[current].alt}
+            className="h-auto w-full"
+            src={list[current].src}
+          />
+        </div>
+      </Card>
+    </div>
   )
 }
 

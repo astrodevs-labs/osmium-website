@@ -46,7 +46,7 @@ function Event({
 
 export default function Timeline() {
   return (
-    <section className="flex w-full items-center justify-center px-36">
+    <section className="my-32 flex w-full items-center justify-center px-36">
       <ol className="relative border-s border-gray-200 dark:border-gray-700">
         {events.map((event) => (
           <Event
