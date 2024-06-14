@@ -13,7 +13,7 @@ import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import emailjs from '@emailjs/browser'
 import { zodResolver } from '@hookform/resolvers/zod'
-import Image from 'next/image'
+import Spline from '@splinetool/react-spline'
 import { useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { useForm } from 'react-hook-form'
@@ -21,7 +21,6 @@ import { IconContext } from 'react-icons'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { toast } from 'sonner'
 import * as z from 'zod'
-import ContactIllustration from '../../public/contact_us.svg'
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -90,16 +89,9 @@ export default function Contact() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="flex w-full flex-col justify-between lg:flex-row lg:space-x-20">
-            <div>
+            <div className="h-96 w-full">
               <p className="text-3xl">Contact</p>
-
-              <Image
-                src={ContactIllustration}
-                width={400}
-                height={400}
-                alt="illustration contact form"
-                className="hidden lg:block"
-              />
+              <Spline scene="https://prod.spline.design/0B-aJiERRH1RmJrI/scene.splinecode" />
             </div>
             <div className="flex w-72 flex-col sm:w-[500px] ">
               <FormField

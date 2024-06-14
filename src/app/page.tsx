@@ -7,6 +7,7 @@ import Header from '@/components/header'
 import Hero from '@/components/hero'
 import { ModeToggle } from '@/components/modeToggle'
 import Timeline from '@/components/timeline'
+import Spline from '@splinetool/react-spline/next'
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <About />
         <Timeline />
         <Features />
+        <Spline scene="https://prod.spline.design/hdvfU3ZZcxwRvbJG/scene.splinecode" />
         <Contact />
         <Faq />
         <Footer />
