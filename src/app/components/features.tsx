@@ -58,7 +58,7 @@ function Element({
           <p
             className={clsx(
               'text-start text-sm text-gray-500 transition-all duration-300 ease-linear dark:text-gray-400 ',
-              showDesc ? 'h-20 opacity-100' : 'h-0 opacity-0',
+              showDesc ? 'h-32 opacity-100 sm:h-20' : 'h-0 opacity-0',
             )}
           >
             {showDesc ? description : null}
