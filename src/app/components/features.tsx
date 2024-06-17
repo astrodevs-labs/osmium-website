@@ -2,8 +2,9 @@
 
 import interact from '@/public/interact.webp'
 import random1 from '@/public/random1.jpg'
-import random2 from '@/public/random2.jpg'
+import testing from '@/public/testing.png'
 import { Card } from '@/ui/card'
+import clsx from 'clsx'
 import Image from 'next/image'
 import { Dispatch, JSX, SVGProps, SetStateAction, useState } from 'react'
 
@@ -27,7 +28,7 @@ const list = [
     description:
       'View your smart contract tests directly within the VS Code test panel. Ensure the quality and robustness of your code by managing and running tests seamlessly within the editor.',
     alt: 'Image ',
-    src: random2,
+    src: testing,
   },
 ]
 
@@ -35,24 +36,32 @@ function Element({
   title,
   description,
   setCurrent,
+  current,
   index,
 }: {
   title: string
   description: string
   setCurrent: Dispatch<SetStateAction<number>>
+  current: number
   index: number
 }) {
+  const showDesc = current == index
   return (
     <button
       onClick={() => setCurrent(index)}
       className="flex w-full max-w-[500px] items-center justify-between rounded-md px-4 py-2 hover:bg-gray-100 focus:outline-none focus:ring-1 focus:ring-blue-50 focus-visible:ring-2 focus-visible:ring-gray-500 dark:hover:bg-gray-800 dark:focus-visible:ring-gray-400"
     >
-      <div className="flex items-center space-x-3">
+      <div className="flex w-11/12 items-center space-x-3">
         <kbd className="flex items-start justify-start">{index + 1}</kbd>
         <div className="flex flex-col items-start">
           <h5 className="">{title}</h5>
-          <p className="text-start text-sm text-gray-500 dark:text-gray-400">
-            {description}
+          <p
+            className={clsx(
+              'text-start text-sm text-gray-500 transition-all duration-300 ease-linear dark:text-gray-400 ',
+              showDesc ? 'h-20 opacity-100' : 'h-0 opacity-0',
+            )}
+          >
+            {showDesc ? description : null}
           </p>
         </div>
       </div>
@@ -75,6 +84,7 @@ export function Features() {
                 key={index}
                 {...item}
                 setCurrent={setCurrent}
+                current={current}
                 index={index}
               />
             ))}
