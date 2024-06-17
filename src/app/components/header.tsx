@@ -1,3 +1,5 @@
+'use client'
+
 import { Button } from '@/ui/button'
 import {
   DropdownMenu,
@@ -7,13 +9,20 @@ import {
   DropdownMenuTrigger,
 } from '@/ui/dropdown-menu'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
 import { FaGithub } from 'react-icons/fa'
+import { VscVscode } from 'react-icons/vsc'
 
 export default function Header() {
   const github = 'https://github.com/astrodevs-labs/osmium'
   const marketplace =
     'https://marketplace.visualstudio.com/items?itemName=OsmiumToolchains.osmium-solidity-extension'
-
+  const [isMobile, setIsMobile] = useState(false)
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth <= 768)
+    }
+  }, [])
   return (
     <header className="sticky top-0 z-20 flex flex-row justify-between bg-background p-4">
       <div className="flex items-baseline space-x-10">
@@ -48,19 +57,31 @@ export default function Header() {
           </DropdownMenu>
         </nav>
       </div>
-      <div className="z-10 flex flex-col space-y-2 md:flex-row md:space-y-0">
+      <div className="z-10 flex">
         <Button
-          className="border-2 border-solid border-osmium bg-osmium text-lg hover:bg-background hover:text-osmium md:mr-2"
-          size="lg"
+          className="mr-2 block border-2 border-solid border-osmium bg-osmium text-lg hover:bg-background hover:text-osmium"
+          size={isMobile ? 'sm' : 'lg'}
         >
-          <a href={marketplace} target="_blank">
-            View marketplace
+          <a
+            href={marketplace}
+            target="_blank"
+            className={isMobile ? '' : 'flex items-center'}
+          >
+            <VscVscode />
+            {isMobile ? null : 'View marketplace'}
           </a>
         </Button>
-        <Button className="text-lg" size="lg">
-          <a href={github} target="_blank" className="flex items-center">
-            <FaGithub className="mr-2" />
-            Github
+        <Button
+          className="mr-2 block text-lg hover:bg-slate-200"
+          size={isMobile ? 'sm' : 'lg'}
+        >
+          <a
+            href={github}
+            target="_blank"
+            className={isMobile ? '' : 'flex items-center'}
+          >
+            <FaGithub />
+            {isMobile ? null : 'Github'}
           </a>
         </Button>
       </div>
