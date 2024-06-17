@@ -1,6 +1,4 @@
-'use client'
-
-import Spline from '@splinetool/react-spline'
+import Spline from '@splinetool/react-spline/next'
 import Link from 'next/link'
 import { buttonVariants } from './ui/button'
 

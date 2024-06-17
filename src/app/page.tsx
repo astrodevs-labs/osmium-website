@@ -7,7 +7,10 @@ import Header from '@/components/header'
 import Hero from '@/components/hero'
 import { ModeToggle } from '@/components/modeToggle'
 import Timeline from '@/components/timeline'
-import Spline from '@splinetool/react-spline/next'
+import dynamic from 'next/dynamic'
+const PricingCard = dynamic(() => import('@/components/pricingCard'), {
+  ssr: false,
+})
 
 export default function Home() {
   return (
@@ -16,9 +19,9 @@ export default function Home() {
       <Hero />
       <div className="lg:px-20">
         <About />
-        <Timeline />
         <Features />
-        <Spline scene="https://prod.spline.design/hdvfU3ZZcxwRvbJG/scene.splinecode" />
+        <Timeline />
+        <PricingCard />
         <Contact />
         <Faq />
         <Footer />
