@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import logo from 'public/icon-transparent.webp'
+import interact from 'public/interact.webp'
 import { Card, CardContent, CardHeader } from './ui/card'
 
 export default function About() {
@@ -9,10 +11,8 @@ export default function About() {
     >
       <div className="flex justify-center space-x-6">
         <Image
-          src="/icon-transparent.png"
+          src={logo}
           alt="osmium logo"
-          width={300}
-          height={300}
           className="hidden rounded-lg lg:block lg:h-96 lg:w-96"
         />
         <Card className="p-2 2xl:w-[500px]">
@@ -48,10 +48,8 @@ export default function About() {
           </CardContent>
         </Card>
         <Image
-          src="/interact.png"
+          src={interact}
           alt="screen of interact"
-          width={500}
-          height={500}
           className="hidden rounded-lg lg:block lg:h-96 lg:w-96"
         />
       </div>

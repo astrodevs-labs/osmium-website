@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import shortLogo from 'public/short-logo-transparent.webp'
 import { FaDiscord, FaGithub } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import { VscVscode } from 'react-icons/vsc'
@@ -13,12 +14,9 @@ export default function Footer() {
     <footer className="mx-8 flex justify-center">
       <div className="flex w-full justify-between border-t-2 border-solid border-gray-400">
         <div className="mt-4 w-60 items-center space-x-2 sm:flex">
-          <Image
-            src="/short-logo-transparent.png"
-            alt="short Osmium logo"
-            width={90}
-            height={90}
-          />
+          <div className="h-20 w-32">
+            <Image src={shortLogo} alt="short Osmium logo" />
+          </div>
         </div>
         <div className="mt-4 flex justify-between space-x-8">
           <a
