@@ -26,8 +26,8 @@ export default function Hero() {
           </Link>
         </div>
       </div>
-      <div className="absolute w-full">
-        <Spline scene="https://prod.spline.design/Eple7IzUjPkdEktc/scene.splinecode" />
+      <div className="absolute w-full bg-background">
+        <Spline scene="https://prod.spline.design/q8VDhFLUtTZSiwQu/scene.splinecode" />
       </div>
     </section>
   )
