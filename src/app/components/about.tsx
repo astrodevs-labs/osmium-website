@@ -14,6 +14,7 @@ export default function About() {
           src={logo}
           alt="osmium logo"
           className="hidden rounded-lg lg:block lg:h-96 lg:w-96"
+          priority
         />
         <Card className="p-2 2xl:w-[500px]">
           <CardHeader className="text-3xl font-bold">
