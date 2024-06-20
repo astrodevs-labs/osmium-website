@@ -72,24 +72,22 @@ function Element({
 export function Features() {
   const [current, setCurrent] = useState(0)
   return (
-    <div className="my-32 flex items-center justify-center">
-      <Card className="flex w-fit justify-around p-4 md:p-6">
-        <div className="space-y-2">
-          <div className="p-4">
-            <h2 className="mb-4 text-lg font-semibold">Galerie</h2>
-            <div className="space-y-2">
-              {list.map((item, index) => (
-                <Element
-                  key={index}
-                  {...item}
-                  setCurrent={setCurrent}
-                  index={index}
-                />
-              ))}
-            </div>
+    <div className="my-32 flex items-center justify-center md:px-8 lg:px-16">
+      <Card className="flex w-full justify-around p-4 md:p-6">
+        <div className="space-y-2 p-4">
+          <h2 className="mb-4 text-lg font-semibold">Galerie</h2>
+          <div className="space-y-2">
+            {list.map((item, index) => (
+              <Element
+                key={index}
+                {...item}
+                setCurrent={setCurrent}
+                index={index}
+              />
+            ))}
           </div>
         </div>
-        <div className="flex h-fit w-[500px] items-center justify-center">
+        <div className="flex h-fit w-96 items-center justify-center md:w-[500px]">
           <Image
             alt={list[current].alt}
             className="h-auto w-full"
