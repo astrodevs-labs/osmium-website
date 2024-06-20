@@ -1,9 +1,9 @@
-import { ThemeProvider } from '@/components/theme-provider'
-import { Toaster } from '@/components/ui/sonner'
+import { Toaster } from '@/ui/sonner'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { ThemeProvider } from 'src/app/common/theme-provider'
+import SplineProvider from './common/splineProvider'
 import './globals.css'
-import SplineProvider from './splineProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 

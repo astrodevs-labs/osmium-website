@@ -1,7 +1,7 @@
+import { Card, CardContent, CardHeader } from '@/ui/card'
 import Image from 'next/image'
 import logo from 'public/icon-transparent.webp'
 import interact from 'public/interact.webp'
-import { Card, CardContent, CardHeader } from './ui/card'
 
 export default function About() {
   return (

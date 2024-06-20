@@ -1,6 +1,6 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
+import { Button } from '@/ui/button'
 import {
   Form,
   FormControl,
@@ -8,9 +8,9 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from '@/components/ui/form'
-import { Input } from '@/components/ui/input'
-import { Textarea } from '@/components/ui/textarea'
+} from '@/ui/form'
+import { Input } from '@/ui/input'
+import { Textarea } from '@/ui/textarea'
 import emailjs from '@emailjs/browser'
 import { zodResolver } from '@hookform/resolvers/zod'
 import dynamic from 'next/dynamic'

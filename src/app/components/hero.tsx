@@ -1,6 +1,6 @@
+import { buttonVariants } from '@/ui/button'
 import Spline from '@splinetool/react-spline/next'
 import Link from 'next/link'
-import { buttonVariants } from './ui/button'
 
 export default function Hero() {
   return (

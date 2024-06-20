@@ -1,10 +1,10 @@
 'use client'
 
-import { Card } from '@/components/ui/card'
 import interact from '@/public/interact.webp'
 import random1 from '@/public/random1.jpg'
 import random2 from '@/public/random2.jpg'
 import random3 from '@/public/random3.jpg'
+import { Card } from '@/ui/card'
 import Image from 'next/image'
 import { Dispatch, JSX, SVGProps, SetStateAction, useState } from 'react'
 

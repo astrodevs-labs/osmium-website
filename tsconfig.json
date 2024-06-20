@@ -24,7 +24,7 @@
     "baseUrl": ".",
     "paths": {
       "@/public/*": ["./public/*"],
-      "@/components/*": ["./src/components/*"],
+      "@/ui/*": ["./src/ui/*"],
       "@/lib/*": ["./src/lib/*"]
     },
     "forceConsistentCasingInFileNames": true

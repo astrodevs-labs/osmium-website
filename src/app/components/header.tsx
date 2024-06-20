@@ -1,13 +1,13 @@
+import { Button } from '@/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu'
+} from '@/ui/dropdown-menu'
 import Link from 'next/link'
 import { FaGithub } from 'react-icons/fa'
-import { Button } from './ui/button'
 
 export default function Header() {
   const github = 'https://github.com/astrodevs-labs/osmium'

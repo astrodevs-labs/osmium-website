@@ -4,7 +4,7 @@ import Spline from '@splinetool/react-spline'
 import { Application } from '@splinetool/runtime'
 import { useTheme } from 'next-themes'
 import { useContext } from 'react'
-import { SplineContext } from 'src/app/splineProvider'
+import { SplineContext } from 'src/app/common/splineProvider'
 
 export default function PricingCard() {
   const theme = useTheme()

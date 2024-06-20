@@ -1,14 +1,14 @@
-import About from '@/components/about'
-import Contact from '@/components/contact'
-import Faq from '@/components/faq'
-import { Features } from '@/components/features'
-import Footer from '@/components/footer'
-import Header from '@/components/header'
-import Hero from '@/components/hero'
-import { ModeToggle } from '@/components/modeToggle'
-import Timeline from '@/components/timeline'
 import dynamic from 'next/dynamic'
-const PricingCard = dynamic(() => import('@/components/pricingCard'), {
+import About from 'src/app/components/about'
+import Contact from 'src/app/components/contact'
+import Faq from 'src/app/components/faq'
+import { Features } from 'src/app/components/features'
+import Footer from 'src/app/components/footer'
+import Header from 'src/app/components/header'
+import Hero from 'src/app/components/hero'
+import { ModeToggle } from 'src/app/components/modeToggle'
+import Timeline from 'src/app/components/timeline'
+const PricingCard = dynamic(() => import('src/app/components/pricingCard'), {
   ssr: false,
 })
 
