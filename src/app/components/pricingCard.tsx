@@ -14,17 +14,17 @@ export default function PricingCard() {
 
   function getScaleValue() {
     const screenWidth = window.innerWidth
-    if (screenWidth > 1400) {
-      return 0.7
-    }
+    // if (screenWidth > 1400) {
+    //   return 0.5
+    // }
     if (screenWidth > 1000) {
-      return 0.45
-    } else if (screenWidth > 700) {
       return 0.4
-    } else if (screenWidth > 500) {
+    } else if (screenWidth > 700) {
       return 0.35
+    } else if (screenWidth > 500) {
+      return 0.25
     }
-    return 0.25
+    return 0.2
   }
 
   function onLoad(spline: Application) {
