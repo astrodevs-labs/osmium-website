@@ -48,9 +48,9 @@ export default function Header() {
           </DropdownMenu>
         </nav>
       </div>
-      <div className="z-10 flex ">
+      <div className="z-10 flex flex-col space-y-2 md:flex-row md:space-y-0">
         <Button
-          className="mr-2 border-2 border-solid border-osmium bg-osmium text-lg hover:bg-background hover:text-osmium"
+          className="border-2 border-solid border-osmium bg-osmium text-lg hover:bg-background hover:text-osmium md:mr-2"
           size="lg"
         >
           <a href={marketplace} target="_blank">

@@ -90,7 +90,7 @@ export function Features() {
         <div className="flex h-fit w-96 items-center justify-center md:w-[500px]">
           <Image
             alt={list[current].alt}
-            className="h-auto w-full"
+            className="h-auto w-full rounded-sm"
             src={list[current].src}
           />
         </div>

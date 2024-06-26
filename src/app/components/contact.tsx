@@ -92,7 +92,7 @@ export default function Contact() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="flex w-full flex-col justify-between lg:flex-row lg:space-x-20">
-            <div className="h-96 w-full">
+            <div className="h-96 w-full max-w-96">
               <p className="text-3xl">Contact</p>
               <DotWaves />
             </div>
