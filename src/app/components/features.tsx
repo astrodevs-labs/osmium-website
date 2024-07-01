@@ -75,7 +75,6 @@ export function Features() {
     <div className="my-32 flex items-center justify-center sm:px-2 md:px-8 lg:px-0 xl:px-12">
       <Card className="flex w-full max-w-[1000px] justify-around p-4 md:p-6">
         <div className="space-y-2 p-4">
-          <h2 className="mb-4 text-lg font-semibold">Galerie</h2>
           <div className="space-y-2">
             {list.map((item, index) => (
               <Element

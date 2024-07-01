@@ -115,7 +115,7 @@ export default function Contact() {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>email</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input placeholder="example@gmail.com" {...field} />
                     </FormControl>

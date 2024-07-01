@@ -22,8 +22,8 @@ export default function Home() {
         <Features />
         <Timeline />
         <PricingCard />
-        <Contact />
         <Faq />
+        <Contact />
         <Footer />
       </div>
       <div className="fixed bottom-4 right-4 px-4 py-2">
