@@ -13,6 +13,7 @@ import { Input } from '@/ui/input'
 import { Textarea } from '@/ui/textarea'
 import emailjs from '@emailjs/browser'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTheme } from 'next-themes'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import ReCAPTCHA from 'react-google-recaptcha'
@@ -34,6 +35,7 @@ const formSchema = z.object({
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [token, setToken] = useState<string | null>(null)
+  const { theme } = useTheme()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -143,6 +145,7 @@ export default function Contact() {
                 <ReCAPTCHA
                   sitekey={process.env.NEXT_PUBLIC_CAPTCHA_SITE_KEY!}
                   onChange={(token) => setToken(token)}
+                  theme={theme === 'dark' ? 'dark' : 'light'}
                 />
               </div>
             </div>

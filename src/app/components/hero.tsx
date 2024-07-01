@@ -8,7 +8,7 @@ export default function Hero() {
       className="mb-16 flex flex-col items-center justify-center space-y-8 py-24 2xl:mb-48"
       id="home"
     >
-      <div className="relative flex h-fit w-full flex-col justify-center overflow-hidden rounded-md bg-black">
+      <div className="relative m-44 flex h-fit w-full flex-col justify-center overflow-hidden rounded-md bg-black">
         <p className="z-10 text-5xl font-bold text-osmium sm:text-8xl">
           Osmium
         </p>
