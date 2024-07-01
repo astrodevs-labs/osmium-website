@@ -3,7 +3,6 @@
 import interact from '@/public/interact.webp'
 import random1 from '@/public/random1.jpg'
 import random2 from '@/public/random2.jpg'
-import random3 from '@/public/random3.jpg'
 import { Card } from '@/ui/card'
 import Image from 'next/image'
 import { Dispatch, JSX, SVGProps, SetStateAction, useState } from 'react'
@@ -29,13 +28,6 @@ const list = [
       'View your smart contract tests directly within the VS Code test panel. Ensure the quality and robustness of your code by managing and running tests seamlessly within the editor.',
     alt: 'Image ',
     src: random2,
-  },
-  {
-    title: ' Integrated Deployment Tools:',
-    description:
-      'Visualize the powerful deployment tools integrated into our extension. Deploy your smart contracts on different blockchains with just a few clicks, without leaving your code editor.',
-    alt: 'Image ',
-    src: random3,
   },
 ]
 
@@ -64,7 +56,9 @@ function Element({
           </p>
         </div>
       </div>
-      <ChevronRightIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+      <div className="h-5 w-5">
+        <ChevronRightIcon className="h-5 w-5 text-gray-500 dark:text-gray-400" />
+      </div>
     </button>
   )
 }
@@ -89,7 +83,7 @@ export function Features() {
         <div className="flex h-fit w-96 items-center justify-center md:w-[500px]">
           <Image
             alt={list[current].alt}
-            className="h-auto w-full rounded-sm"
+            className="h-auto w-full rounded-lg"
             src={list[current].src}
           />
         </div>

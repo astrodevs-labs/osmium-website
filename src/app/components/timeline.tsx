@@ -34,9 +34,7 @@ function Event({
       <time className="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
         {date}
       </time>
-      <h3 className="text-2xl font-semibold text-gray-900 dark:text-white">
-        {title}
-      </h3>
+      <h3 className="text-2xl font-semibold">{title}</h3>
       <p className="mb-4 w-60 text-xl font-normal text-gray-500 dark:text-gray-400 sm:w-[500px] md:w-[600px] xl:w-[800px]">
         {description}
       </p>
