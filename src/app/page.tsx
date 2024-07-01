@@ -21,7 +21,9 @@ export default function Home() {
         <About />
         <Features />
         <Timeline />
-        <PricingCard />
+      </div>
+      <PricingCard />
+      <div className="lg:px-20">
         <Faq />
         <Contact />
         <Footer />
