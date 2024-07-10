@@ -1,7 +1,7 @@
 'use client'
 
 import interact from '@/public/interact.webp'
-import random1 from '@/public/random1.jpg'
+import slither from '@/public/slither.png'
 import testing from '@/public/testing.png'
 import { Card } from '@/ui/card'
 import clsx from 'clsx'
@@ -21,7 +21,7 @@ const list = [
     description:
       'Take advantage of our automated security analysis tool to detect potential vulnerabilities in your smart contracts. Ensure your code is secure and follows best practices.',
     alt: 'Image ',
-    src: random1,
+    src: slither,
   },
   {
     title: ' Integrated Testing Panel:',
