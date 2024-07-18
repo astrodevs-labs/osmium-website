@@ -14,11 +14,7 @@ export default function PricingCard() {
 
   function getScaleValue() {
     const screenWidth = window.innerWidth
-    if (screenWidth > 1600) {
-      return 0.5
-    } else if (screenWidth > 1200) {
-      return 0.45
-    } else if (screenWidth > 1000) {
+    if (screenWidth > 1000) {
       return 0.4
     } else if (screenWidth > 800) {
       return 0.35
