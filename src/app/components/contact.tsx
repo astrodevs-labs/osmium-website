@@ -91,7 +91,21 @@ export default function Contact() {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
           <div className="flex w-full flex-col justify-between lg:flex-row lg:space-x-20">
             <div className="h-96 w-full max-w-96">
-              <p className="text-3xl">Contact</p>
+              <p className="text-4xl font-bold text-primary">Contact</p>
+              <div className="mt-4 text-lg text-foreground">
+                <p className="text-2xl font-semibold">
+                  We are dedicated to improving the development of your
+                  ecosystem. By contacting us, you can:
+                </p>
+                <ul className="mt-2 list-inside list-disc text-muted-foreground">
+                  <li className="mt-2">Enhance your development processes</li>
+                  <li className="mt-2">Receive expert advice and support</li>
+                  <li className="mt-2">Streamline your project management</li>
+                  <li className="mt-2">
+                    Access cutting-edge technology solutions
+                  </li>
+                </ul>
+              </div>
             </div>
             <div className="flex w-72 flex-col sm:w-[500px] ">
               <FormField
