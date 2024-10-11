@@ -7,22 +7,20 @@ import Header from 'src/app/components/header'
 import Hero from 'src/app/components/hero'
 import { ModeToggle } from 'src/app/components/modeToggle'
 import Timeline from 'src/app/components/timeline'
+import PricingCard from './components/pricingCard'
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col lg:px-20">
       <Header />
       <Hero />
-      <div className="lg:px-20">
-        <About />
-        <Features />
-        <Timeline />
-      </div>
-      <div className="lg:px-20">
-        <Faq />
-        <Contact />
-        <Footer />
-      </div>
+      <About />
+      <Features />
+      <Timeline />
+      <Faq />
+      <PricingCard />
+      <Contact />
+      <Footer />
       <div className="fixed bottom-4 right-4 px-4 py-2">
         <ModeToggle />
       </div>
