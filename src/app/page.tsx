@@ -1,4 +1,3 @@
-import dynamic from 'next/dynamic'
 import About from 'src/app/components/about'
 import Contact from 'src/app/components/contact'
 import Faq from 'src/app/components/faq'
@@ -8,9 +7,6 @@ import Header from 'src/app/components/header'
 import Hero from 'src/app/components/hero'
 import { ModeToggle } from 'src/app/components/modeToggle'
 import Timeline from 'src/app/components/timeline'
-const PricingCard = dynamic(() => import('src/app/components/pricingCard'), {
-  ssr: false,
-})
 
 export default function Home() {
   return (
@@ -22,7 +18,6 @@ export default function Home() {
         <Features />
         <Timeline />
       </div>
-      <PricingCard />
       <div className="lg:px-20">
         <Faq />
         <Contact />

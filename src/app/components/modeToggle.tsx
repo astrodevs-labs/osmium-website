@@ -10,17 +10,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/ui/dropdown-menu'
-import { useContext } from 'react'
-import { SplineContext } from 'src/app/common/splineProvider'
 
 export function ModeToggle() {
   const { setTheme } = useTheme()
-  const { spline } = useContext(SplineContext)
-
-  const handleThemeChange = (theme: string) => {
-    setTheme(theme)
-    spline?.setVariable('Theme', theme)
-  }
 
   return (
     <DropdownMenu>
@@ -32,13 +24,13 @@ export function ModeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => handleThemeChange('light')}>
+        <DropdownMenuItem onClick={() => setTheme('light')}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleThemeChange('dark')}>
+        <DropdownMenuItem onClick={() => setTheme('dark')}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleThemeChange('system')}>
+        <DropdownMenuItem onClick={() => setTheme('system')}>
           System
         </DropdownMenuItem>
       </DropdownMenuContent>

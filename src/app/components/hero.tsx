@@ -1,6 +1,6 @@
 import { buttonVariants } from '@/ui/button'
-import Spline from '@splinetool/react-spline/next'
 import Link from 'next/link'
+import RibbonEffect from './ribbonEffect'
 
 export default function Hero() {
   return (
@@ -27,7 +27,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="absolute w-full bg-background">
-        <Spline scene="https://prod.spline.design/q8VDhFLUtTZSiwQu/scene.splinecode" />
+        <RibbonEffect />
       </div>
     </section>
   )

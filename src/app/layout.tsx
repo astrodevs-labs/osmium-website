@@ -2,7 +2,6 @@ import { Toaster } from '@/ui/sonner'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { ThemeProvider } from 'src/app/common/theme-provider'
-import SplineProvider from './common/splineProvider'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -29,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SplineProvider>{children}</SplineProvider>
+          {children}
           <Toaster />
         </ThemeProvider>
       </body>
