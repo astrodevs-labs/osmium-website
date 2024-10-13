@@ -58,7 +58,7 @@ function Element({
           <p
             className={clsx(
               'text-start text-sm text-gray-500 transition-all duration-300 ease-linear dark:text-gray-400 ',
-              showDesc ? 'h-32 opacity-100 sm:h-20' : 'h-0 opacity-0',
+              showDesc ? 'h-36 opacity-100 sm:h-20 md:h-28' : 'h-0 opacity-0',
             )}
           >
             {showDesc ? description : null}
@@ -75,25 +75,23 @@ function Element({
 export function Features() {
   const [current, setCurrent] = useState(0)
   return (
-    <div className="my-32 flex items-center justify-center sm:px-2 md:px-8 lg:px-0 xl:px-12">
-      <Card className="flex w-full max-w-[1000px] justify-around p-4 md:p-6">
-        <div className="space-y-2 p-4">
-          <div className="space-y-2">
-            {list.map((item, index) => (
-              <Element
-                key={index}
-                {...item}
-                setCurrent={setCurrent}
-                current={current}
-                index={index}
-              />
-            ))}
-          </div>
+    <div className="flex h-screen items-center justify-center">
+      <Card className="flex w-full  flex-col-reverse items-center justify-around p-4 md:flex-row md:items-start md:p-6">
+        <div className="space-y-2 pt-2">
+          {list.map((item, index) => (
+            <Element
+              key={index}
+              {...item}
+              setCurrent={setCurrent}
+              current={current}
+              index={index}
+            />
+          ))}
         </div>
-        <div className="flex h-fit w-96 items-center justify-center md:w-[500px]">
+        <div className="flex h-fit items-center justify-center md:w-[500px]">
           <Image
             alt={list[current].alt}
-            className="h-auto w-full rounded-lg"
+            className="w-60 rounded-lg lg:w-96 "
             src={list[current].src}
           />
         </div>

@@ -5,18 +5,15 @@ import interact from 'public/interact.webp'
 
 export default function About() {
   return (
-    <section
-      className="mx-4 my-32 space-y-52 py-24 md:px-8 lg:px-16"
-      id="about"
-    >
-      <div className="flex justify-center space-x-6">
+    <section className="mt-40 space-y-52 py-24" id="about">
+      <div className="flex justify-center lg:space-x-6">
         <Image
           src={logo}
           alt="osmium logo"
           className="hidden rounded-lg lg:block lg:h-96 lg:w-96"
           priority
         />
-        <Card className="p-2 2xl:w-[500px]">
+        <Card>
           <CardHeader className="text-3xl font-bold">
             Current problem in smart contract developpement
           </CardHeader>
@@ -34,7 +31,7 @@ export default function About() {
         </Card>
       </div>
       <div className="flex justify-center space-x-6">
-        <Card className="p-2 2xl:w-[500px]">
+        <Card>
           <CardHeader className="text-pretty text-3xl font-bold">
             What is Osmium and how does it solve the problem ?
           </CardHeader>

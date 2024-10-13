@@ -6,12 +6,6 @@ const events = [
       'Get access to syntax highlighting, linting, formatting, references, testing with Foundry, gas estimation, deploying and interacting with contracts and scripts, Foundry compiler integration, and static security analysis with Slither, all in one place.',
   },
   {
-    date: 'Q2 2024',
-    title: 'Massa Features',
-    description:
-      'Start a node and deploy a contract on the Massa network locally with gas estimation.',
-  },
-  {
     date: 'Q3 2024',
     title: 'Solidity Debugger',
     description:
@@ -35,7 +29,7 @@ function Event({
         {date}
       </time>
       <h3 className="text-2xl font-semibold">{title}</h3>
-      <p className="mb-4 w-60 text-xl font-normal text-gray-500 dark:text-gray-400 sm:w-[500px] md:w-[600px] xl:w-[800px]">
+      <p className="mb-4 text-xl font-normal text-gray-500 dark:text-gray-400 ">
         {description}
       </p>
     </li>
@@ -44,7 +38,7 @@ function Event({
 
 export default function Timeline() {
   return (
-    <section className="my-32 flex w-full items-center justify-center px-36">
+    <section className="flex h-screen w-full items-center justify-center">
       <ol className="relative border-s border-gray-200 dark:border-gray-700">
         {events.map((event) => (
           <Event

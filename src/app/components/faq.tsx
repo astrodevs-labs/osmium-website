@@ -7,14 +7,10 @@ import {
 
 export default function Faq() {
   return (
-    <section className="my-40 flex w-full flex-col items-center space-y-4 px-2">
+    <section className="flex h-screen w-full flex-col items-center justify-center space-y-4 px-4">
       <p className="text-3xl font-bold">Common Questions</p>
       <div className="flex w-full items-center justify-center">
-        <Accordion
-          type="single"
-          collapsible
-          className="w-96 md:w-[600px] xl:w-[750px]"
-        >
+        <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger>
               Will you be supporting the Solidity language?

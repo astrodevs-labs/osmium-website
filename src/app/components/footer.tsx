@@ -11,7 +11,7 @@ export default function Footer() {
     'https://marketplace.visualstudio.com/items?itemName=OsmiumToolchains.osmium-solidity-extension'
   const github = 'https://github.com/astrodevs-labs/osmium'
   return (
-    <footer className="mx-8 flex justify-center">
+    <footer className="flex justify-center">
       <div className="flex w-full justify-between border-t-2 border-solid border-gray-400">
         <div className="mt-4 w-60 items-center space-x-2 sm:flex">
           <div className="h-20 w-32">

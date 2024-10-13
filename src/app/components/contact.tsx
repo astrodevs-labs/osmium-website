@@ -2,6 +2,13 @@
 
 import { Button } from '@/ui/button'
 import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/ui/card'
+import {
   Form,
   FormControl,
   FormField,
@@ -21,6 +28,13 @@ import { IconContext } from 'react-icons'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
 import { toast } from 'sonner'
 import * as z from 'zod'
+
+const features = [
+  'Develop your ecosystem',
+  'Improve Developper Experience',
+  'Enhance your development processes',
+  'Access cutting-edge technology solutions',
+]
 
 const formSchema = z.object({
   name: z.string().min(2).max(50),
@@ -84,30 +98,52 @@ export default function Contact() {
 
   return (
     <section
-      className="my-52 flex w-full flex-col items-center py-24"
+      className="m-4 flex flex-col items-center justify-center sm:h-screen"
       id="contact"
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <div className="flex w-full flex-col justify-between lg:flex-row lg:space-x-20">
-            <div className="h-96 w-full max-w-96">
-              <p className="text-4xl font-bold text-primary">Contact</p>
+          <div className="flex w-full flex-col justify-between md:flex-row md:space-x-20">
+            <div className="w-full ">
               <div className="mt-4 text-lg text-foreground">
-                <p className="text-2xl font-semibold">
-                  We are dedicated to improving the development of your
-                  ecosystem. By contacting us, you can:
-                </p>
-                <ul className="mt-2 list-inside list-disc text-muted-foreground">
-                  <li className="mt-2">Enhance your development processes</li>
-                  <li className="mt-2">Receive expert advice and support</li>
-                  <li className="mt-2">Streamline your project management</li>
-                  <li className="mt-2">
-                    Access cutting-edge technology solutions
-                  </li>
-                </ul>
+                <Card className="">
+                  <CardHeader className="text-center">
+                    <CardTitle className="mb-4 text-2xl font-semibold">
+                      Maybe You...
+                    </CardTitle>
+                    <CardDescription className="font-light text-gray-500 dark:text-gray-400 sm:text-lg">
+                      Relevant for Start up & tech companies.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    {features.map((feature) => (
+                      <ul
+                        role="list"
+                        className="mb-8 space-y-4 text-left"
+                        key={feature}
+                      >
+                        <li className="flex items-center space-x-3">
+                          <svg
+                            className="h-5 w-5 flex-shrink-0 text-green-500 dark:text-green-400"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            ></path>
+                          </svg>
+                          <span>{feature}</span>
+                        </li>
+                      </ul>
+                    ))}
+                  </CardContent>
+                </Card>
               </div>
             </div>
-            <div className="flex w-72 flex-col sm:w-[500px] ">
+            <div className="flex flex-col sm:mt-0 ">
               <FormField
                 control={form.control}
                 name="name"

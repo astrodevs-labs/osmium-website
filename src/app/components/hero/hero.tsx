@@ -5,14 +5,14 @@ import RibbonEffect from './ribbonEffect'
 export default function Hero() {
   return (
     <section
-      className="mb-16 flex flex-col items-center justify-center space-y-8 py-24 2xl:mb-48"
+      className="my-16 flex flex-col items-center justify-center space-y-8 px-4 lg:px-16 2xl:px-32"
       id="home"
     >
       <div className="relative m-44 flex h-fit w-full flex-col justify-center overflow-hidden rounded-md bg-black">
         <p className="z-10 text-5xl font-bold text-osmium sm:text-8xl">
           Osmium
         </p>
-        <p className="z-10 text-3xl sm:text-5xl">
+        <p className="z-10 text-3xl font-medium sm:text-5xl">
           <strong>Develop</strong>, <strong>Build</strong> and
           <br />
           <strong>Deploy</strong> smart contracts easily
